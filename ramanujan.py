@@ -174,7 +174,8 @@ def MainMenu():
         # Assignment done, display results        
         piColumn = [[sg.Text("[n] pi")], [sg.HorizontalSeparator()]] # key
         for i in range(len(approximations)): # Add a column for all the values of pi
-            piColumn.append([sg.Text(f"[{i}]"), sg.Text(str(approximations[i])[0:len(str(approximations[i]))-digitsAhead])])
+            nTxt = "{n:3n}"
+            piColumn.append([sg.Text(f"[{nTxt.format(n = i)}]"), sg.Text(str(approximations[i])[0:len(str(approximations[i]))-digitsAhead])])
 
         layout = [[sg.Column(piColumn, justification="left", vertical_alignment="left", scrollable=True, size=(400, 300))]]
         result = sg.Window(title="Approximation over time", layout=[[sg.Frame(title=f"RESULTS ({len(approximations)} iterations)", layout=layout, size=(400, 300), element_justification='l')], [sg.Button("OK")]], size=(450, 350), element_justification='c')

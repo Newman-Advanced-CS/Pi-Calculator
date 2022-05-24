@@ -27,7 +27,7 @@ def factorial(x):
        else:
            return Decimal(x*factorial(x-1))
 
-def CalculatePI(digits, showApproximation = False): # Calculates pi to a specific number of digits
+def CalculatePI(digits, showApproximation=False): # Calculates pi to a specific number of digits
     getcontext().prec = digits + digitsAhead # Change the precision of the decimal variables
     sys.setrecursionlimit(max(math.floor(digits/1.5), 1000)) # Change the recursion limit of the system (yikes)
 
@@ -49,7 +49,7 @@ def CalculatePI(digits, showApproximation = False): # Calculates pi to a specifi
         n += 1
         calculatedPi = 1/inversePi
         if len(approximationList) != 0:
-            fixedPi = Decimal(str(calculatedPi)[0:len(str(calculatedPi))-digitsAhead]) # Remove the last two digit of the number to stop rounding
+            fixedPi = Decimal(str(calculatedPi)[0:len(str(calculatedPi))-digitsAhead]) # Remove the last two digits of the number to stop rounding
             if calculatedPi == approximationList[-1]: # When the last result is equal to the new result, no furthur specificity can be reached.
                 if showApproximation == True:
                     return approximationList
